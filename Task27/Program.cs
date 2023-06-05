@@ -3,18 +3,28 @@
 // 82 -> 10
 // 9012 -> 12
 
-Console.WriteLine("Введите число");
-int number = Console.ReadLine();
+int GetLength() 
+{     
+    Console.WriteLine("Введите число: ");
+    int length = Convert.ToInt32(Console.ReadLine());
+    return length; 
+} 
 
-int Sum(string number);
+int Sum(int length)
 {
     int sum = 0;
-    for(int i = 1; i < number.Length; i++)
+    while (length > 0)
     {
-        sum = sum + number[i];
-    } 
-    Console.WriteLine($"Сумма цифр числа  + {number} = {sum}");
+        sum += length % 10;
+        length = length/10;
+
+    }
     return sum;
 }
 
-int Sum(string number);
+int number = GetLength(); 
+int result = Sum(number);
+
+Console.WriteLine("Сумма цифрр в числе: " + result);
+
+    
